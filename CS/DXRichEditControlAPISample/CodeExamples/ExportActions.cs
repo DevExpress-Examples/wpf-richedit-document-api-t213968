@@ -13,7 +13,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void SaveImageFromRange(Document document)
         {
             #region #SaveImageFromRange
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             DocumentRange docRange = document.Paragraphs[2].Range;
             ReadOnlyDocumentImageCollection docImageColl = document.Images.Get(docRange);
             if (docImageColl.Count > 0)
@@ -30,7 +30,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void ExportRangeToHtml(Document document)
         {
             #region #ExportRangeToHtml
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             // Get the range for three paragraphs.
             DocumentRange r = document.CreateRange(document.Paragraphs[0].Range.Start, document.Paragraphs[0].Range.Length + document.Paragraphs[1].Range.Length + document.Paragraphs[2].Range.Length);
             // Export to HTML.
@@ -44,7 +44,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void ExportRangeToPlainText(Document document)
         {
             #region #ExportRangeToPlainText
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             string plainText = document.GetText(document.Paragraphs[2].Range);
             System.Windows.Forms.MessageBox.Show(plainText);
             #endregion #ExportRangeToPlainText

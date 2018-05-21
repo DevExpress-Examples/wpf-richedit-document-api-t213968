@@ -16,7 +16,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void CreateComment(Document document)
         {
             #region #CreateComment
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             DocumentRange docRange = document.Paragraphs[1].Range;
             string commentAuthor = "Maryland B. Clopton";
             document.Comments.Create(docRange, commentAuthor, DateTime.Now);
@@ -25,7 +25,7 @@ namespace DXRichEditControlAPISample.CodeExamples
 
         static void CreateNestedComment(Document document) {
             #region #CreateNestedComment
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             if (document.Comments.Count > 0) {
                 DocumentRange[] resRanges = document.FindAll("trump", SearchOptions.None, document.Comments[1].Range);
                 if (resRanges.Length > 0) {
@@ -54,7 +54,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         {
             public static void CreateComment(Document document)
             {
-                document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+                document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
                 DocumentRange docRange = document.Paragraphs[1].Range;
                 string commentAuthor = "Maryland B. Clopton";
                 document.Comments.Create(docRange, commentAuthor);
@@ -65,7 +65,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void EditCommentProperties(Document document)
         {
             #region #EditCommentProperties
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             int commentCount = document.Comments.Count;
             if (commentCount > 0)
             {
@@ -82,7 +82,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void EditCommentContent(Document document)
         {
             #region #EditCommentContent
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             int commentCount = document.Comments.Count;
             if (commentCount > 0)
             {
