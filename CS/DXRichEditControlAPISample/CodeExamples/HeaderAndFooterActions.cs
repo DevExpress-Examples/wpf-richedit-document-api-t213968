@@ -9,23 +9,6 @@ namespace DXRichEditControlAPISample.CodeExamples
 {
     class HeaderAndFooterActions
     {
-        static void CreateHeader(Document document)
-        {
-            #region #CreateHeader            
-            Section firstSection = document.Sections[0];
-            // Create an empty header.
-            SubDocument newHeader = firstSection.BeginUpdateHeader();
-            firstSection.EndUpdateHeader(newHeader);
-            // Check whether the document already has a header (the same header for all pages).
-            if (firstSection.HasHeader(HeaderFooterType.Primary))
-            {
-                SubDocument headerDocument = firstSection.BeginUpdateHeader();
-                document.ChangeActiveDocument(headerDocument);
-                document.CaretPosition = headerDocument.CreatePosition(0);
-                firstSection.EndUpdateHeader(headerDocument);
-            }
-            #endregion #CreateHeader
-        }
         static void ModifyHeader(Document document)
         {
             #region #ModifyHeader
