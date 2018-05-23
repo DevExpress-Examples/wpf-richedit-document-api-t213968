@@ -68,7 +68,7 @@ Namespace DXRichEditControlAPISample.CodeExamples
         Private Shared Sub AppendToParagraph(ByVal document As Document)
 '            #Region "#AppendToParagraph"
             document.BeginUpdate()
-            document.AppendText("First Paragraph" & ControlChars.Lf & "Second Paragraph" & ControlChars.Lf & "Third Paragraph")
+            document.AppendText("First Paragraph" & vbLf & "Second Paragraph" & vbLf & "Third Paragraph")
             document.EndUpdate()
             Dim pos As DocumentPosition = document.CaretPosition
             Dim doc As SubDocument = pos.BeginUpdateDocument()

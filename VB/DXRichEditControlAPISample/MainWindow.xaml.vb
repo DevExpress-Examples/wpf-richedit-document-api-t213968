@@ -59,14 +59,14 @@ Namespace DXRichEditControlAPISample
         End Sub
 
         Private Sub richEditControlCS_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs)
-            If richEditControlVBLoaded AndAlso (Not richEditControlCsLoaded) Then
+            If richEditControlVBLoaded AndAlso Not richEditControlCsLoaded Then
                 CreateCodeEditor()
             End If
             richEditControlCsLoaded = True
         End Sub
 
         Private Sub richEditControlVB_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs)
-            If richEditControlCsLoaded AndAlso (Not richEditControlVBLoaded) Then
+            If richEditControlCsLoaded AndAlso Not richEditControlVBLoaded Then
                 CreateCodeEditor()
             End If
             richEditControlVBLoaded = True

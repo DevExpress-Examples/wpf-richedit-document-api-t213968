@@ -52,14 +52,16 @@ Namespace DXRichEditControlAPISample
             End If
 
             Dim result As New StringBuilder(length * 2)
-            For position As Integer = 0 To length - 2
+            Dim position As Integer = 0
+            Do While position < length - 1
                 Dim current As Char = exampleName.Chars(position)
                 Dim [next] As Char = exampleName.Chars(position + 1)
                 result.Append(current)
                 If Char.IsLower(current) AndAlso Char.IsUpper([next]) Then
                     result.Append(" "c)
                 End If
-            Next position
+                position += 1
+            Loop
             result.Append(exampleName.Chars(length - 1))
             Return result.ToString()
         End Function
@@ -117,7 +119,10 @@ Namespace DXRichEditControlAPISample
                     Continue For
                 End If
 
-                Dim group As New CodeExampleGroup() With {.Name = mergedExamplesCollection(0).HumanReadableGroupName, .Examples = mergedExamplesCollection}
+                Dim group As New CodeExampleGroup() With { _
+                    .Name = mergedExamplesCollection(0).HumanReadableGroupName, _
+                    .Examples = mergedExamplesCollection _
+                }
                 result.Add(group)
             Next sourceCodeItem
             Return result

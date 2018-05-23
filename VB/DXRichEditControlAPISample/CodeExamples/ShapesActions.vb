@@ -13,7 +13,7 @@ Namespace DXRichEditControlAPISample.CodeExamples
     Friend Class ShapesActions
         Private Shared Sub AddFloatingPicture(ByVal document As Document)
 '            #Region "#AddFloatingPicture"
-            document.AppendText("Line One" & ControlChars.Lf & "Line Two" & ControlChars.Lf & "Line Three")
+            document.AppendText("Line One" & vbLf & "Line Two" & vbLf & "Line Three")
             Dim streamResInfo As StreamResourceInfo = Application.GetResourceStream(New Uri("beverages.png", UriKind.Relative))
             If streamResInfo IsNot Nothing Then
                 Using s As Stream = streamResInfo.Stream
@@ -52,7 +52,7 @@ Namespace DXRichEditControlAPISample.CodeExamples
 
         Private Shared Sub AddTextBox(ByVal document As Document)
 '            #Region "#AddTextBox"
-            document.AppendText("Line One" & ControlChars.Lf & "Line Two" & ControlChars.Lf & "Line Three")
+            document.AppendText("Line One" & vbLf & "Line Two" & vbLf & "Line Three")
             Dim myTextBox As Shape = document.Shapes.InsertTextBox(document.CreatePosition(15))
             myTextBox.HorizontalAlignment = ShapeHorizontalAlignment.Center
             ' Specify the text box background color.

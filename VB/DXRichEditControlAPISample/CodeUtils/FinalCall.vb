@@ -11,12 +11,12 @@ Namespace SpreadsheetChartAPISamples
         End Sub
 
         Public Shared Function CheckModule(ByVal lang As ExampleLanguage, ByVal regionName As String) As String
-            Dim modules As New List(Of String)() From {"Pie Of Pie Chart", "Custom Walls and Floor"}
+            Dim modules As New List(Of String) From {"Pie Of Pie Chart", "Custom Walls and Floor"}
             If modules.Contains(regionName) Then
-                If lang = ExampleLanguage.Csharp Then
+                If lang Is ExampleLanguage.Csharp Then
                     Return finalCallCS
                 End If
-                If lang = ExampleLanguage.VB Then
+                If lang Is ExampleLanguage.VB Then
                     Return finalCallVB
                 End If
             End If
