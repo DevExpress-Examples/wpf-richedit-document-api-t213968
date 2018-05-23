@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
-using DevExpress.Xpf.Core.Native;
 
 namespace DXRichEditControlAPISample
 {
@@ -105,7 +104,7 @@ namespace DXRichEditControlAPISample
         {
             get
             {
-                if (tabControl.SelectedContainer.Header.ToString().StartsWith("CS")) return ExampleLanguage.Csharp;
+              if (tabControl.SelectedContainer.Header.ToString().StartsWith("CS")) return ExampleLanguage.Csharp;
                 else return ExampleLanguage.VB;
             }
             set
