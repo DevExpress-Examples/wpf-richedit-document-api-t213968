@@ -28,9 +28,9 @@ Namespace DXRichEditControlAPISample
             CompilerParams.TreatWarningsAsErrors = False
             CompilerParams.GenerateExecutable = False
 
-            Dim referencesSystem() As String = { "System.dll", "System.Windows.dll", "System.Windows.Forms.dll", "System.Data.dll", "System.Xml.dll", "System.Core.dll", "System.Drawing.dll", "System.Xaml.dll", "WindowsBase.dll", "PresentationFramework.dll", "PresentationCore.dll" }
+            Dim referencesSystem() As String = { "System.dll", "System.Windows.dll", "System.Windows.Forms.dll", "System.Data.dll", "System.Xml.dll", "System.Core.dll", "System.Drawing.dll", "System.Xaml.dll", "WindowsBase.dll", "PresentationFramework.dll"}
 
-            Dim referencesDX() As String = { AssemblyInfo.SRAssemblyData, GetModuleAssembly(), AssemblyInfo.SRAssemblyOfficeCore, AssemblyInfo.SRAssemblyPrintingCore, AssemblyInfo.SRAssemblyPrinting, AssemblyInfo.SRAssemblyDocs, AssemblyInfo.SRAssemblyUtils, AssemblyInfo.SRAssemblyRichEdit, AssemblyInfo.SRAssemblyXpfRichEdit, AssemblyInfo.SRAssemblyXpfCore }
+            Dim referencesDX() As String = { AssemblyInfo.SRAssemblyData, GetModuleAssembly(), AssemblyInfo.SRAssemblyOfficeCore, AssemblyInfo.SRAssemblyPrintingCore, AssemblyInfo.SRAssemblyPrinting, AssemblyInfo.SRAssemblyDocs, AssemblyInfo.SRAssemblyUtils }
             Dim references((referencesSystem.Length + referencesDX.Length) - 1) As String
 
             For referenceIndex As Integer = 0 To referencesSystem.Length - 1
@@ -80,7 +80,7 @@ Namespace DXRichEditControlAPISample
 
             If methInfo IsNot Nothing Then
                 Try
-                    methInfo.Invoke(Nothing, New Object() { evaluationParameter })
+                    methInfo.Invoke(Nothing, New Object() { evaluationParameter})
                 Catch e1 As Exception
                     Return False ' an error
                 End Try
@@ -96,7 +96,6 @@ Namespace DXRichEditControlAPISample
 
         Protected Overrides Function GetModuleAssembly() As String
             Return AssemblyInfo.SRAssemblyRichEditCore
-
         End Function
         Protected Overrides Function GetExampleClassName() As String
             Return "RichEditCodeResultViewer.ExampleItem"
@@ -110,7 +109,7 @@ Namespace DXRichEditControlAPISample
             Return New Microsoft.CSharp.CSharpCodeProvider()
         End Function
 
-        Private Const codeStart_Renamed As String = "using System;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit.API.Native;" & ControlChars.CrLf & "using DevExpress.Xpf.RichEdit;" & ControlChars.CrLf & "using System.Drawing;" & ControlChars.CrLf & "using System.Windows;" & ControlChars.CrLf & "using DevExpress.Utils;" & ControlChars.CrLf & "using System.IO;" & ControlChars.CrLf & "using System.Diagnostics;" & ControlChars.CrLf & "using System.Xml;" & ControlChars.CrLf & "using System.Data;" & ControlChars.CrLf & "using System.Collections.Generic;" & ControlChars.CrLf & "using System.Linq;" & ControlChars.CrLf & "using System.Globalization;" & ControlChars.CrLf & "using System.Windows.Resources;" & ControlChars.CrLf & "namespace RichEditCodeResultViewer { " & ControlChars.CrLf & "public class ExampleItem { " & ControlChars.CrLf & "        public static void Process(Document document) { " & ControlChars.CrLf & ControlChars.CrLf
+        Private Const codeStart_Renamed As String = "using System;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit.API.Native;" & ControlChars.CrLf & "using System.Drawing;" & ControlChars.CrLf & "using System.Windows;" & ControlChars.CrLf & "using DevExpress.Utils;" & ControlChars.CrLf & "using System.IO;" & ControlChars.CrLf & "using System.Diagnostics;" & ControlChars.CrLf & "using System.Xml;" & ControlChars.CrLf & "using System.Data;" & ControlChars.CrLf & "using System.Collections.Generic;" & ControlChars.CrLf & "using System.Linq;" & ControlChars.CrLf & "using System.Globalization;" & ControlChars.CrLf & "using System.Windows.Resources;" & ControlChars.CrLf & "namespace RichEditCodeResultViewer { " & ControlChars.CrLf & "public class ExampleItem { " & ControlChars.CrLf & "        public static void Process(Document document) { " & ControlChars.CrLf & ControlChars.CrLf
 
 
         Private Const codeBeforeClasses_Renamed As String = "       " & ControlChars.CrLf & " }" & ControlChars.CrLf & "    }" & ControlChars.CrLf

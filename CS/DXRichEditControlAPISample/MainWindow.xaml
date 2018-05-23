@@ -9,7 +9,7 @@
     xmlns:dxo="http://schemas.devexpress.com/winfx/2008/xaml/office" 
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:local="clr-namespace:DXRichEditControlAPISample" 
-    xmlns:UI="clr-namespace:DevExpress.Xpf.RichEdit.UI;assembly=DevExpress.Xpf.RichEdit.v18.1"
+    xmlns:UI="clr-namespace:DevExpress.Xpf.RichEdit.UI;assembly=DevExpress.Xpf.RichEdit.v15.1"
     x:Class="DXRichEditControlAPISample.MainWindow" Height="800" Width="1024"
     dx:ThemeManager.ThemeName="Office2013">
 
@@ -41,7 +41,7 @@
             </dx:DXTabItem>
         </dx:DXTabControl>
 
-            <dxre:RichEditControl x:Name="richEditControl" Grid.Row="2" Grid.Column="0" Margin="0,5,0,-5" />
+            <dxre:RichEditControl x:Name="richEditControl" Grid.Row="2" Grid.Column="0" />
 
             <dxg:TreeListControl x:Name="treeList1" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" CurrentItemChanged="OnNewExampleSelected">
                 <dxg:TreeListControl.Resources>

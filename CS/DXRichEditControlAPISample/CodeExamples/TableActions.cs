@@ -114,7 +114,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void UseConditionalStyle(Document document)
         {
             #region #UseConditionalStyle
-            document.LoadDocument("Documents//TableStyles.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("TableStyles.docx", DocumentFormat.OpenXml);
             document.BeginUpdate();
 
             // Create a new style that is based on the 'Grid Table 5 Dark Accent 1' style defined in the loaded document.
@@ -165,43 +165,6 @@ namespace DXRichEditControlAPISample.CodeExamples
             }
         }
         #endregion #@ChangeColumnAppearance
-        static void ChangeTableColor(Document document)
-        {
-            #region #ChangeTableColor
-            // Create a table.
-            Table table = document.Tables.Create(document.Range.Start, 3, 5, AutoFitBehaviorType.AutoFitToWindow);
-            table.BeginUpdate();
-            // Provide the space between table cells.
-            //The distance between cells will be 4 mm.
-            document.Unit = DevExpress.Office.DocumentUnit.Millimeter;
-            table.TableCellSpacing = 2;
-            // Change the color of empty space between cells.
-            table.TableBackgroundColor = Color.Violet;
-            //Change cell background color.
-            table.ForEachCell(new TableCellProcessorDelegate(TableHelper.ChangeCellColor));
-            table.ForEachCell(new TableCellProcessorDelegate(TableHelper.ChangeCellBorderColor));
-            table.EndUpdate();
-            #endregion #ChangeTableColor
-
-        }
-        
-        #region #@ChangeTableColor
-        class TableHelper
-        {
-            public static void ChangeCellColor(TableCell cell, int i, int j)
-            {
-                cell.BackgroundColor = Color.Yellow;
-            }
-
-            public static void ChangeCellBorderColor(TableCell cell, int i, int j)
-            {
-                cell.Borders.Bottom.LineColor = Color.Red;
-                cell.Borders.Left.LineColor = Color.Red;
-                cell.Borders.Right.LineColor = Color.Red;
-                cell.Borders.Top.LineColor = Color.Red;
-            }
-        }
-        #endregion #@ChangeTableColor
 
         static void UseTableCellProcessor(Document document)
         {
@@ -224,42 +187,5 @@ namespace DXRichEditControlAPISample.CodeExamples
             }
         }
         #endregion #@UseTableCellProcessor
-        static void MergeCells(Document document)
-        {
-            #region #MergeCells
-            Table table = document.Tables.Create(document.Range.Start, 6, 8);
-            table.BeginUpdate();
-            table.MergeCells(table[2, 1], table[5, 1]);
-            table.MergeCells(table[2, 3], table[2, 7]);
-            table.EndUpdate();
-            #endregion #MergeCells
-        }
-        static void SplitCells(Document document)
-        {
-            #region #SplitCells
-            Table table = document.Tables.Create(document.Range.Start, 3, 3, AutoFitBehaviorType.FixedColumnWidth, 350);
-            //split a cell to three: 
-            table.Cell(2, 1).Split(1, 3);
-            #endregion #SplitCells
-        }
-        static void DeleteTableElements(Document document)
-        {
-            #region #DeleteTableElements
-            Table tbl = document.Tables.Create(document.Range.Start, 3, 3, AutoFitBehaviorType.AutoFitToWindow);
-            tbl.BeginUpdate();
-            tbl.Rows[2].Delete();
-            tbl.Cell(1, 1).Delete();
-
-            tbl.EndUpdate();
-            #endregion #DeleteTableElements
-        }
-        static void DeleteTable(Document document)
-        {
-            #region #DeleteTable 
-            Table tbl = document.Tables.Create(document.Range.Start, 3, 4);
-            //To delete the table, uncomment the method below:
-            //  document.Tables.Remove(tbl);
-            #endregion #DeleteTable
-        }
     }
 }

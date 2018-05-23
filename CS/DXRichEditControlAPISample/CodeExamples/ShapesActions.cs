@@ -33,7 +33,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void FloatingPictureOffset(Document document)
         {
             #region #FloatingPictureOffset
-            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             document.Unit = DevExpress.Office.DocumentUnit.Centimeter;
             Shape myPicture = document.Shapes[1];
             // Clear the qualitative positioning to allow positioning by specifying the numerical offset.
@@ -50,7 +50,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void ChangeZorderAndWrapping(Document document)
         {
             #region #ChangeZorderAndWrapping
-            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             Shape myPicture = document.Shapes[1];
             myPicture.VerticalAlignment = ShapeVerticalAlignment.Top;
             myPicture.ZOrder = document.Shapes[0].ZOrder - 1;
@@ -82,7 +82,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void InsertRichTextInTextBox(Document document)
         {
             #region #InsertRichTextInTextBox
-            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             Shape myTextBox = document.Shapes[0];
             // Allow text box resize to fit contents.
             myTextBox.TextBox.HeightRule = TextBoxSizeRule.Auto;
@@ -101,7 +101,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void RotateAndResize(Document document)
         {
             #region #RotateAndResize
-            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             foreach (Shape s in document.Shapes)
             {
              // Rotate a text box and resize a floating picture.

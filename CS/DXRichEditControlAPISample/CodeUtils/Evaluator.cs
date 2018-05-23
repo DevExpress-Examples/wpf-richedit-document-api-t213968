@@ -10,18 +10,9 @@ namespace DXRichEditControlAPISample
 {
     public abstract class ExampleCodeEvaluator
     {
-        protected abstract string CodeStart
-        {
-            get;
-        }
-        protected abstract string CodeBeforeClasses
-        {
-            get;
-        }
-        protected abstract string CodeEnd
-        {
-            get;
-        }
+        protected abstract string CodeStart { get; }
+        protected abstract string CodeBeforeClasses { get; }
+        protected abstract string CodeEnd { get; }
         protected abstract CodeDomProvider GetCodeDomProvider();
         protected abstract string GetModuleAssembly();
         protected abstract string GetExampleClassName();
@@ -50,8 +41,7 @@ namespace DXRichEditControlAPISample
                                                       "System.Drawing.dll",
                                                       "System.Xaml.dll",
                                                       "WindowsBase.dll",
-                                                      "PresentationFramework.dll",
-                                                      "PresentationCore.dll" };
+                                                      "PresentationFramework.dll"};
 
             string[] referencesDX = new string[] {
                 AssemblyInfo.SRAssemblyData,
@@ -60,11 +50,7 @@ namespace DXRichEditControlAPISample
                 AssemblyInfo.SRAssemblyPrintingCore,
                 AssemblyInfo.SRAssemblyPrinting,
                 AssemblyInfo.SRAssemblyDocs,
-                AssemblyInfo.SRAssemblyUtils,
-                AssemblyInfo.SRAssemblyRichEdit,
-                AssemblyInfo.SRAssemblyXpfRichEdit,
-                AssemblyInfo.SRAssemblyXpfCore
-
+                AssemblyInfo.SRAssemblyUtils
             };
             string[] references = new string[referencesSystem.Length + referencesDX.Length];
 
@@ -122,7 +108,7 @@ namespace DXRichEditControlAPISample
             {
                 try
                 {
-                    methInfo.Invoke(null, new object[] { evaluationParameter });
+                    methInfo.Invoke(null, new object[] { evaluationParameter});
                 }
                 catch (Exception)
                 {
@@ -141,7 +127,6 @@ namespace DXRichEditControlAPISample
         protected override string GetModuleAssembly()
         {
             return AssemblyInfo.SRAssemblyRichEditCore;
-
         }
         protected override string GetExampleClassName()
         {
@@ -160,7 +145,6 @@ namespace DXRichEditControlAPISample
       "using System;\r\n" +
       "using DevExpress.XtraRichEdit;\r\n" +
       "using DevExpress.XtraRichEdit.API.Native;\r\n" +
-      "using DevExpress.Xpf.RichEdit;\r\n" +
       "using System.Drawing;\r\n" +
       "using System.Windows;\r\n" +
       "using DevExpress.Utils;\r\n" +
@@ -170,7 +154,7 @@ namespace DXRichEditControlAPISample
       "using System.Data;\r\n" +
       "using System.Collections.Generic;\r\n" +
       "using System.Linq;\r\n" +
-      "using System.Globalization;\r\n" +
+      "using System.Globalization;\r\n"+ 
       "using System.Windows.Resources;\r\n" +
       "namespace RichEditCodeResultViewer { \r\n" +
       "public class ExampleItem { \r\n" +
@@ -185,27 +169,12 @@ namespace DXRichEditControlAPISample
             "\r\n" +
             "    }\r\n";
 
-        protected override string CodeStart
-        {
-            get
-            {
-                return codeStart;
-            }
-        }
+        protected override string CodeStart { get { return codeStart; } }
         protected override string CodeBeforeClasses
         {
-            get
-            {
-                return codeBeforeClasses;
-            }
+            get { return codeBeforeClasses; }
         }
-        protected override string CodeEnd
-        {
-            get
-            {
-                return codeEnd;
-            }
-        }
+        protected override string CodeEnd { get { return codeEnd; } }
     }
     #endregion
     #region RichEditVbExampleCodeEvaluator
@@ -243,27 +212,12 @@ namespace DXRichEditControlAPISample
         const string codeEnd =
         "\r\nEnd Namespace\r\n";
 
-        protected override string CodeStart
-        {
-            get
-            {
-                return codeStart;
-            }
-        }
+        protected override string CodeStart { get { return codeStart; } }
         protected override string CodeBeforeClasses
         {
-            get
-            {
-                return codeBeforeClasses;
-            }
+            get { return codeBeforeClasses; }
         }
-        protected override string CodeEnd
-        {
-            get
-            {
-                return codeEnd;
-            }
-        }
+        protected override string CodeEnd { get { return codeEnd; } }
     }
     #endregion
 
@@ -412,35 +366,17 @@ namespace DXRichEditControlAPISample
     }
     public class CodeEvaluationEventArgs : EventArgs
     {
-        public bool Result
-        {
-            get; set;
-        }
-        public string Code
-        {
-            get; set;
-        }
-        public string CodeClasses
-        {
-            get; set;
-        }
-        public ExampleLanguage Language
-        {
-            get; set;
-        }
-        public object EvaluationParameter
-        {
-            get; set;
-        }
+        public bool Result { get; set; }
+        public string Code { get; set; }
+        public string CodeClasses { get; set; }
+        public ExampleLanguage Language { get; set; }
+        public object EvaluationParameter { get; set; }
     }
     public delegate void CodeEvaluationEventHandler(object sender, CodeEvaluationEventArgs e);
 
     public class OnAfterCompileEventArgs : EventArgs
     {
-        public bool Result
-        {
-            get; set;
-        }
+        public bool Result { get; set; }
     }
     public delegate void OnAfterCompileEventHandler(object sender, OnAfterCompileEventArgs e);
     #endregion

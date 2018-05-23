@@ -147,39 +147,6 @@ Namespace DXRichEditControlAPISample.CodeExamples
             End Sub
         End Class
         #End Region ' #@ChangeColumnAppearance
-        Private Shared Sub ChangeTableColor(ByVal document As Document)
-'            #Region "#ChangeTableColor"
-            ' Create a table.
-            Dim table As Table = document.Tables.Create(document.Range.Start, 3, 5, AutoFitBehaviorType.AutoFitToWindow)
-            table.BeginUpdate()
-            ' Provide the space between table cells.
-            'The distance between cells will be 4 mm.
-            document.Unit = DevExpress.Office.DocumentUnit.Millimeter
-            table.TableCellSpacing = 2
-            ' Change the color of empty space between cells.
-            table.TableBackgroundColor = Color.Violet
-            'Change cell background color.
-            table.ForEachCell(New TableCellProcessorDelegate(AddressOf TableHelper.ChangeCellColor))
-            table.ForEachCell(New TableCellProcessorDelegate(AddressOf TableHelper.ChangeCellBorderColor))
-            table.EndUpdate()
-'            #End Region ' #ChangeTableColor
-
-        End Sub
-
-        #Region "#@ChangeTableColor"
-        Private Class TableHelper
-            Public Shared Sub ChangeCellColor(ByVal cell As TableCell, ByVal i As Integer, ByVal j As Integer)
-                cell.BackgroundColor = Color.Yellow
-            End Sub
-
-            Public Shared Sub ChangeCellBorderColor(ByVal cell As TableCell, ByVal i As Integer, ByVal j As Integer)
-                cell.Borders.Bottom.LineColor = Color.Red
-                cell.Borders.Left.LineColor = Color.Red
-                cell.Borders.Right.LineColor = Color.Red
-                cell.Borders.Top.LineColor = Color.Red
-            End Sub
-        End Class
-        #End Region ' #@ChangeTableColor
 
         Private Shared Sub UseTableCellProcessor(ByVal document As Document)
 '            #Region "#UseTableCellProcessor"
@@ -198,38 +165,5 @@ Namespace DXRichEditControlAPISample.CodeExamples
             End Sub
         End Class
         #End Region ' #@UseTableCellProcessor
-        Private Shared Sub MergeCells(ByVal document As Document)
-'            #Region "#MergeCells"
-            Dim table As Table = document.Tables.Create(document.Range.Start, 6, 8)
-            table.BeginUpdate()
-            table.MergeCells(table(2, 1), table(5, 1))
-            table.MergeCells(table(2, 3), table(2, 7))
-            table.EndUpdate()
-'            #End Region ' #MergeCells
-        End Sub
-        Private Shared Sub SplitCells(ByVal document As Document)
-'            #Region "#SplitCells"
-            Dim table As Table = document.Tables.Create(document.Range.Start, 3, 3, AutoFitBehaviorType.FixedColumnWidth, 350)
-            'split a cell to three: 
-            table.Cell(2, 1).Split(1, 3)
-'            #End Region ' #SplitCells
-        End Sub
-        Private Shared Sub DeleteTableElements(ByVal document As Document)
-'            #Region "#DeleteTableElements"
-            Dim tbl As Table = document.Tables.Create(document.Range.Start, 3, 3, AutoFitBehaviorType.AutoFitToWindow)
-            tbl.BeginUpdate()
-            tbl.Rows(2).Delete()
-            tbl.Cell(1, 1).Delete()
-
-            tbl.EndUpdate()
-'            #End Region ' #DeleteTableElements
-        End Sub
-        Private Shared Sub DeleteTable(ByVal document As Document)
-'            #Region "#DeleteTable "
-            Dim tbl As Table = document.Tables.Create(document.Range.Start, 3, 4)
-            'To delete the table, uncomment the method below:
-            '  document.Tables.Remove(tbl);
-'            #End Region ' #DeleteTable
-        End Sub
     End Class
 End Namespace
