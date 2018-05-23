@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
+using DevExpress.Xpf.Core.Native;
 
 namespace DXRichEditControlAPISample
 {
