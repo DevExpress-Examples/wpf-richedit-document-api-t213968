@@ -104,7 +104,7 @@ namespace DXRichEditControlAPISample
         {
             get
             {
-                if (tabControl.SelectedTabItem.Header.ToString().StartsWith("CS")) return ExampleLanguage.Csharp;
+                if (tabControl.SelectedContainer.Header.ToString().StartsWith("CS")) return ExampleLanguage.Csharp;
                 else return ExampleLanguage.VB;
             }
             set
