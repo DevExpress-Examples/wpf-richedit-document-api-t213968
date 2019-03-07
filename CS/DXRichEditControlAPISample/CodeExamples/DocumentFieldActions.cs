@@ -22,19 +22,28 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void ModifyFieldCode(Document document)
         {
             #region #ModifyFieldCode
-            document.BeginUpdate();
-            document.Fields.Create(document.CaretPosition, "DATE");
-            document.EndUpdate();
-            for (int i = 0; i < document.Fields.Count; i++)
+            DocumentPosition caretPosition = document.CaretPosition;
+            SubDocument currentDocument = caretPosition.BeginUpdateDocument();
+
+            //Create a DATE field at the caret position
+            currentDocument.Fields.Create(caretPosition, "DATE");
+            currentDocument.EndUpdate();
+
+            for (int i = 0; i < currentDocument.Fields.Count; i++)
             {
-                string fieldCode = document.GetText(document.Fields[i].CodeRange);
+                string fieldCode = document.GetText(currentDocument.Fields[i].CodeRange);
                 if (fieldCode == "DATE")
                 {
-                    DocumentPosition position = document.Fields[i].CodeRange.End;
-                    document.InsertText(position, @"\@ ""M/d/yyyy h:mm am/pm""");
-                }
+                    //Retrieve the range obtained by the field code
+                    DocumentPosition position = currentDocument.Fields[i].CodeRange.End;
+
+                    //Insert the format switch to the end of the field code range
+                    currentDocument.InsertText(position, @"\@ ""M/d/yyyy h:mm am/pm""");
             }
-            document.Fields.Update();
+        }
+
+        //Update all document fields
+        currentDocument.Fields.Update();
             #endregion #ModifyFieldCode
         }
 
