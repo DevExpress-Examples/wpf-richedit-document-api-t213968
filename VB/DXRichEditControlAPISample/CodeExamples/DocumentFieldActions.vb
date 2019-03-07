@@ -18,17 +18,26 @@ Namespace DXRichEditControlAPISample.CodeExamples
 
         Private Shared Sub ModifyFieldCode(ByVal document As Document)
 '            #Region "#ModifyFieldCode"
-            document.BeginUpdate()
-            document.Fields.Create(document.CaretPosition, "DATE")
-            document.EndUpdate()
-            For i As Integer = 0 To document.Fields.Count - 1
-                Dim fieldCode As String = document.GetText(document.Fields(i).CodeRange)
+            Dim caretPosition As DocumentPosition = document.CaretPosition
+            Dim currentDocument As SubDocument = caretPosition.BeginUpdateDocument()
+
+            'Create a DATE field at the caret position
+            currentDocument.Fields.Create(document.CaretPosition, "DATE")
+            currentDocument.EndUpdate()
+
+            For i As Integer = 0 To currentDocument.Fields.Count - 1
+                Dim fieldCode As String = document.GetText(currentDocument.Fields(i).CodeRange)
                 If fieldCode = "DATE" Then
-                    Dim position As DocumentPosition = document.Fields(i).CodeRange.End
-                    document.InsertText(position, "\@ ""M/d/yyyy h:mm am/pm""")
+                    'Retrieve the range obtained by the field code
+                    Dim position As DocumentPosition = currentDocument.Fields(i).CodeRange.End
+
+                    'Insert the format switch to the end of the field code range
+                    currentDocument.InsertText(position, "\@ ""M/d/yyyy h:mm am/pm""")
                 End If
             Next i
-            document.Fields.Update()
+
+            'Update all document fields
+            currentDocument.Fields.Update()
 '            #End Region ' #ModifyFieldCode
         End Sub
 
