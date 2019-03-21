@@ -12,39 +12,26 @@ Namespace DXRichEditControlAPISample.CodeExamples
 
             document.LoadDocument("Documents//List.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             document.BeginUpdate()
-            ' Define an abstract list that is the pattern for lists used in the document.
+            ' Create a new list pattern objects
             Dim list As AbstractNumberingList = document.AbstractNumberingLists.Add()
+
+            ' Specify the list's type
             list.NumberingType = NumberingType.Bullet
-
-            ' Specify parameters for each list level.
-
             Dim level As ListLevel = list.Levels(0)
             level.ParagraphProperties.LeftIndent = 100
+
+            ' Specify the bullet's format
+            ' Without this step, the list is considered as numbered
+            level.DisplayFormatString = "·"
             level.CharacterProperties.FontName = "Symbol"
-            level.DisplayFormatString = New String(ChrW(&H00B7), 1)
 
-            level = list.Levels(1)
-            level.ParagraphProperties.LeftIndent = 250
-            level.CharacterProperties.FontName = "Symbol"
-            level.DisplayFormatString = New String(ChrW(&H006F), 1)
+            ' Create a new list based on the specific pattern
+            Dim bulletedList As NumberingList = document.NumberingLists.Add(0)
 
-            level = list.Levels(2)
-            level.ParagraphProperties.LeftIndent = 450
-            level.CharacterProperties.FontName = "Symbol"
-            level.DisplayFormatString = New String(ChrW(&H00B7), 1)
-
-            ' Create a list for use in the document. It is based on a previously defined abstract list with ID = 0.
-            document.NumberingLists.Add(0)
-            document.EndUpdate()
-
-            document.AppendText("Line 1" & vbLf & "Line 2" & vbLf & "Line 3")
-            ' Convert all paragraphs to list items.
-            document.BeginUpdate()
+            ' Add paragraphs to the list
             Dim paragraphs As ParagraphCollection = document.Paragraphs
-            For Each pgf As Paragraph In paragraphs
-                pgf.ListIndex = 0
-                pgf.ListLevel = 1
-            Next pgf
+            paragraphs.AddParagraphsToList(document.Range, bulletedList, 0)
+
             document.EndUpdate()
 '            #End Region ' #CreateBulletedList
         End Sub
@@ -78,6 +65,7 @@ Namespace DXRichEditControlAPISample.CodeExamples
 
             'Add paragraphs to the list
             paragraphs.AddParagraphsToList(document.Range, numberingList, 0)
+
             document.EndUpdate()
             '            #End Region ' #CreateNumberedList
         End Sub
