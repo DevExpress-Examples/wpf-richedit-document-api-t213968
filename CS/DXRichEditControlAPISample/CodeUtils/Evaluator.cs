@@ -55,6 +55,7 @@ namespace DXRichEditControlAPISample
 
             string[] referencesDX = new string[] {
                 AssemblyInfo.SRAssemblyData,
+                AssemblyInfo.SRAssemblyDataDesktop,
                 GetModuleAssembly(),
                 AssemblyInfo.SRAssemblyOfficeCore,
                 AssemblyInfo.SRAssemblyPrintingCore,

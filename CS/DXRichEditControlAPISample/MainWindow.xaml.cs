@@ -115,7 +115,8 @@ namespace DXRichEditControlAPISample
                 }
             }
         }
-        private void OnNewExampleSelected(object sender, CurrentItemChangedEventArgs e) {
+        private void OnNewExampleSelected(object sender, CurrentItemChangedEventArgs e) 
+        {
             CodeExample newExample = e.NewItem as CodeExample;
             CodeExample oldExample = e.OldItem as CodeExample;
 
