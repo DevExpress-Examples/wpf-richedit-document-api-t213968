@@ -27,11 +27,11 @@ namespace DXRichEditControlAPISample.CodeExamples
             #region #InsertEndnotes
             document.LoadDocument("Documents//Grimm.docx");
             
-            //Insert an endnote at the end of the last paragraph:
+            //Insert an endnote at the end of the the second last paragraph:
             DocumentPosition endnotePosition = document.CreatePosition(document.Paragraphs[document.Paragraphs.Count - 2].Range.End.ToInt() - 1);
             document.Endnotes.Insert(endnotePosition);
 
-            //Insert an endnote at the end of the second last paragraph with a custom mark:
+            //Insert an endnote with a custom mark:
             DocumentPosition endnoteWithCustomMarkPosition = document.CreatePosition(document.Paragraphs[document.Paragraphs.Count - 3].Range.End.ToInt() - 1);
             document.Endnotes.Insert(endnoteWithCustomMarkPosition, "\u00BA");
             #endregion #InsertEndnotes
