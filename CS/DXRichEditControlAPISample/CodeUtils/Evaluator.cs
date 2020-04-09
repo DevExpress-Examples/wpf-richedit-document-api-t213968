@@ -162,6 +162,7 @@ namespace DXRichEditControlAPISample
       "using DevExpress.XtraRichEdit;\r\n" +
       "using DevExpress.XtraRichEdit.API.Native;\r\n" +
       "using DevExpress.Xpf.RichEdit;\r\n" +
+      "using DevExpress.Office.Utils;\r\n" +
       "using System.Drawing;\r\n" +
       "using System.Windows;\r\n" +
       "using DevExpress.Utils;\r\n" +
@@ -223,6 +224,7 @@ namespace DXRichEditControlAPISample
       "Imports DevExpress.XtraRichEdit\r\n" +
       "Imports DevExpress.XtraRichEdit.API.Native\r\n" +
       "Imports System.Drawing\r\n" +
+      "Imports DevExpress.Office.Utils\r\n" +
       "Imports System.Windows\r\n" +
       "Imports DevExpress.Utils\r\n" +
       "Imports System.IO\r\n" +
