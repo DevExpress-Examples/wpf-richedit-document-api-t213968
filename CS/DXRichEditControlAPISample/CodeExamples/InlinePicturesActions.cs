@@ -48,7 +48,7 @@ namespace DXRichEditControlAPISample.CodeExamples
         static void SaveImageToFile(Document document)
         {
             #region #SaveImageToFile
-            document.LoadDocument("Documetns//MovieRentals.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//MovieRentals.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             DocumentRange myRange = document.CreateRange(0,100);
             ReadOnlyDocumentImageCollection images = document.Images.Get(myRange);
             if (images.Count > 0)

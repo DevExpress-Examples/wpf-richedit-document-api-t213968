@@ -41,7 +41,7 @@ Namespace DXRichEditControlAPISample.CodeExamples
 
 		Private Shared Sub SaveImageToFile(ByVal document As Document)
 '			#Region "#SaveImageToFile"
-			document.LoadDocument("Documetns//MovieRentals.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+			document.LoadDocument("Documents//MovieRentals.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
 			Dim myRange As DocumentRange = document.CreateRange(0,100)
 			Dim images As ReadOnlyDocumentImageCollection = document.Images.Get(myRange)
 			If images.Count > 0 Then
