@@ -9,7 +9,7 @@
     xmlns:dxo="http://schemas.devexpress.com/winfx/2008/xaml/office" 
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:local="clr-namespace:DXRichEditControlAPISample" 
-    xmlns:UI="clr-namespace:DevExpress.Xpf.RichEdit.UI;assembly=DevExpress.Xpf.RichEdit.v20.1"
+    xmlns:UI="clr-namespace:DevExpress.Xpf.RichEdit.UI;assembly=DevExpress.Xpf.RichEdit.v21.1"
     x:Class="DXRichEditControlAPISample.MainWindow" Height="800" Width="1024"
     dx:ThemeManager.ThemeName="Office2013">
 
